@@ -26,6 +26,15 @@ public class CharacterController: MonoBehaviour
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
+    public KeyCode interact = KeyCode.E;
+
+    [Header("Interaction")]
+    [SerializeField] private bool canInteract = true;
+    [SerializeField] private Vector3 interactionRayPoint = default;
+    [SerializeField] private float interactionDistance = default;
+    [SerializeField] private LayerMask interationLayer = default;
+    private Interactable currentInteractable;
+    public Camera playerCam;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -72,6 +81,14 @@ public class CharacterController: MonoBehaviour
     {
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+
+        //Manages interactions
+        if (canInteract)
+        {
+            //interaction method
+            HandleInteractionCheck();
+            HandleInteractionInput();
+        }
 
         //sets move state
         if (freeRoam)
@@ -137,14 +154,14 @@ public class CharacterController: MonoBehaviour
         if (grounded && Input.GetKey(sprintKey))
         {
             state = MovementState.sprinting;
-            desiredMoveSpeed = sprintSpeed;
+            moveSpeed = sprintSpeed;
         }
 
         // Walking
         else if (grounded)
         {
             state = MovementState.walking;
-            desiredMoveSpeed = walkSpeed;
+            moveSpeed = walkSpeed;
         }
 
         // Air
@@ -153,46 +170,9 @@ public class CharacterController: MonoBehaviour
             state = MovementState.air;
         }
 
-        // check if desiredMoveSpeed has changed drastically
-        if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0)
-        {
-            StopAllCoroutines();
-            StartCoroutine(SmoothlyLerpMoveSpeed());
-        }
-        else
-        {
-            moveSpeed = desiredMoveSpeed;
-        }
-
         lastDesiredMoveSpeed = desiredMoveSpeed;
     }
 
-    private IEnumerator SmoothlyLerpMoveSpeed()
-    {
-        // smoothly lerp movementSpeed to desired value
-        float time = 0;
-        float difference = Mathf.Abs(desiredMoveSpeed - moveSpeed);
-        float startValue = moveSpeed;
-
-        while (time < difference)
-        {
-            moveSpeed = Mathf.Lerp(startValue, desiredMoveSpeed, time / difference);
-
-            if (OnSlope())
-            {
-                float slopeAngle = Vector3.Angle(Vector3.up, slopeHit.normal);
-                float slopeAngleIncrease = 1 + (slopeAngle / 90f);
-
-                time += Time.deltaTime * speedIncreaseMultiplier * slopeIncreaseMultiplier * slopeAngleIncrease;
-            }
-            else
-                time += Time.deltaTime * speedIncreaseMultiplier;
-
-            yield return null;
-        }
-
-        moveSpeed = desiredMoveSpeed;
-    }
 
     private void MovePlayer()
     {
@@ -240,6 +220,39 @@ public class CharacterController: MonoBehaviour
                 Vector3 limitedVel = flatVel.normalized * moveSpeed;
                 rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
             }
+        }
+    }
+
+    private void HandleInteractionCheck()
+    {
+        Ray myRay = playerCam.ViewportPointToRay(interactionRayPoint);
+
+
+        if (Physics.Raycast(myRay, out RaycastHit hit, interactionDistance))
+        {
+            if (hit.collider.gameObject.layer == 6 && (currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
+            {
+                hit.collider.TryGetComponent(out currentInteractable);
+
+                if (currentInteractable)
+                {
+                    currentInteractable.OnFocus();
+                }
+            }
+        }
+        else if (currentInteractable)
+        {
+            currentInteractable.OnLoseFocus();
+            currentInteractable = null;
+        }
+    }
+
+    private void HandleInteractionInput()
+    {
+        if (Input.GetKeyDown(interact) && currentInteractable != null && Physics.Raycast(playerCam.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance, interationLayer))
+        {
+            //raycast
+            currentInteractable.OnInteract();
         }
     }
 

@@ -11,7 +11,6 @@ public class cam : MonoBehaviour
     [Header("references")]
     public Transform orient;
     public Transform player;
-    public Transform playerObj;
     public Rigidbody rbody;
 
     public float rotationspeed;
@@ -27,14 +26,18 @@ public class cam : MonoBehaviour
 
     private void Update()
     {
-        //rotate orientation
-        Vector3 veiwDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
-        orient.forward = veiwDir.normalized;
+
+
+        //----------------------------------------CAM------------------------------
+
+        //setting the mouse value to a float and multiplying by our desired sensitivity
+        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
         //rot cam
-        yRotation += horizontalInput;
+        yRotation += mouseX;
 
-        xRotation -= verticalInput;
+        xRotation -= mouseY;
 
         //clamps xaxis 90 <---> -90
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
@@ -42,14 +45,5 @@ public class cam : MonoBehaviour
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orient.rotation = Quaternion.Euler(0, yRotation, 0);
 
-        //rotate player
-        float horizontalInput = Input.GetAxisRaw("Horizontal") * Time.deltaTime * sensX;
-        float verticalInput = Input.GetAxisRaw("Vertical") * Time.deltaTime * sensY;
-        Vector3 inputDir = orient.forward * verticalInput + orient.right * horizontalInput;
-
-        if(inputDir!= Vector3.zero)
-        {
-            playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationspeed);
-        }
     }
 }
