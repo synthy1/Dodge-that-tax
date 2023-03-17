@@ -46,6 +46,7 @@ public class CharacterController: MonoBehaviour
     private RaycastHit slopeHit;
     private bool exitingSlope;
 
+    public Transform playerHolder;
 
     public Transform orientation;
 
@@ -79,6 +80,8 @@ public class CharacterController: MonoBehaviour
 
     private void Update()
     {
+
+       
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
@@ -91,11 +94,16 @@ public class CharacterController: MonoBehaviour
         }
 
         //sets move state
-        if (freeRoam)
+        if (freeRoam && !sitting)
         {
             MyInput();
             SpeedControl();
             StateHandler();
+        }
+
+        if (!freeRoam && sitting)
+        {
+            MyInput2();
         }
 
 
@@ -135,14 +143,14 @@ public class CharacterController: MonoBehaviour
 
     private void MyInput2()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-
         // when to exit desk
         if (Input.GetKey(jumpKey) && Input.GetKey(KeyCode.S))
         {
             freeRoam = true;
             sitting = false;
+
+            playerCam.transform.position = playerHolder.position; 
+            playerCam.transform.rotation = playerHolder.rotation; 
         }
 
     }
@@ -230,7 +238,7 @@ public class CharacterController: MonoBehaviour
 
         if (Physics.Raycast(myRay, out RaycastHit hit, interactionDistance))
         {
-            if (hit.collider.gameObject.layer == 6 && (currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
+            if (hit.collider.gameObject.layer == 7 && (currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
             {
                 hit.collider.TryGetComponent(out currentInteractable);
 
