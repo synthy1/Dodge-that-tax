@@ -26,14 +26,7 @@ public class CharacterController: MonoBehaviour
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
-    public KeyCode interact = KeyCode.E;
 
-    [Header("Interaction")]
-    [SerializeField] private bool canInteract = true;
-    [SerializeField] private Vector3 interactionRayPoint = default;
-    [SerializeField] private float interactionDistance = default;
-    [SerializeField] private LayerMask interationLayer = default;
-    private Interactable currentInteractable;
     public Camera playerCam;
 
     [Header("Ground Check")]
@@ -85,14 +78,6 @@ public class CharacterController: MonoBehaviour
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
-        //Manages interactions
-        if (canInteract)
-        {
-            //interaction method
-            HandleInteractionCheck();
-            HandleInteractionInput();
-        }
-
         //sets move state
         if (freeRoam && !sitting)
         {
@@ -101,7 +86,7 @@ public class CharacterController: MonoBehaviour
             StateHandler();
         }
 
-        if (!freeRoam && sitting)
+        else if (!freeRoam && sitting)
         {
             MyInput2();
         }
@@ -144,7 +129,7 @@ public class CharacterController: MonoBehaviour
     private void MyInput2()
     {
         // when to exit desk
-        if (Input.GetKey(jumpKey) && Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             freeRoam = true;
             sitting = false;
@@ -231,38 +216,6 @@ public class CharacterController: MonoBehaviour
         }
     }
 
-    private void HandleInteractionCheck()
-    {
-        Ray myRay = playerCam.ViewportPointToRay(interactionRayPoint);
-
-
-        if (Physics.Raycast(myRay, out RaycastHit hit, interactionDistance))
-        {
-            if (hit.collider.gameObject.layer == 7 && (currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
-            {
-                hit.collider.TryGetComponent(out currentInteractable);
-
-                if (currentInteractable)
-                {
-                    currentInteractable.OnFocus();
-                }
-            }
-        }
-        else if (currentInteractable)
-        {
-            currentInteractable.OnLoseFocus();
-            currentInteractable = null;
-        }
-    }
-
-    private void HandleInteractionInput()
-    {
-        if (Input.GetKeyDown(interact) && currentInteractable != null && Physics.Raycast(playerCam.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance, interationLayer))
-        {
-            //raycast
-            currentInteractable.OnInteract();
-        }
-    }
 
     private void Jump()
     {

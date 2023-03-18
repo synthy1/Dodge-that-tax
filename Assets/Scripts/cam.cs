@@ -31,6 +31,8 @@ public class cam : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        playerBools = GameObject.Find("Player").GetComponent<CharacterController>();
     }
 
     private void Update()
@@ -42,6 +44,9 @@ public class cam : MonoBehaviour
         //free roam
         if (playerBools.freeRoam && !playerBools.sitting)
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
             //setting the mouse value to a float and multiplying by our desired sensitivity
             float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
             float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
@@ -60,30 +65,34 @@ public class cam : MonoBehaviour
 
         if(!playerBools.freeRoam && playerBools.sitting)
         {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                camera.transform.rotation = Quaternion.Euler(snap1.rotation.x, snap1.rotation.y, snap1.rotation.z);
-                camera.transform.localPosition = snap1.localPosition;
 
-            }
-
-            else if (Input.GetKeyUp(KeyCode.A))
-            {
-                camera.transform.rotation = Quaternion.Euler(snap3.rotation.x, snap3.rotation.y, snap3.rotation.z);
-                camera.transform.localPosition = snap3.localPosition;
-            }
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
 
             if (Input.GetKeyDown(KeyCode.D))
             {
-                camera.transform.rotation = Quaternion.Euler(snap2.rotation.x, snap2.rotation.y, snap2.rotation.z);
-                camera.transform.localPosition = snap2.localPosition;
+                camera.transform.rotation = snap1.rotation;
+                camera.transform.position = snap1.position;
 
             }
 
             else if (Input.GetKeyUp(KeyCode.D))
             {
-                camera.transform.rotation = Quaternion.Euler(snap3.rotation.x, snap3.rotation.y, snap3.rotation.z);
-                camera.transform.localPosition = snap3.localPosition;
+                camera.transform.rotation = snap3.rotation;
+                camera.transform.position = snap3.position;
+            }
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                camera.transform.rotation = snap2.rotation;
+                camera.transform.position = snap2.position;
+
+            }
+
+            else if (Input.GetKeyUp(KeyCode.A))
+            {
+                camera.transform.rotation = snap3.rotation;
+                camera.transform.position = snap3.position;
             }
 
         }
@@ -92,4 +101,4 @@ public class cam : MonoBehaviour
 
 
 }
-}
+
