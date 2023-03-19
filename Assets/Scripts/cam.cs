@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cam : MonoBehaviour
+public class Cam : MonoBehaviour
 {
     [Header("Refrences")]
     CharacterController playerBools;
