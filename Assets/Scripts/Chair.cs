@@ -19,6 +19,8 @@ public class Chair : Interactable
         player.freeRoam = false;
         player.sitting = true;
 
+        player.GetComponent<Rigidbody>().velocity = new Vector3(0f,0f,0f);
+
         mainCam.transform.position = chairCam.transform.position;
         mainCam.transform.rotation = chairCam.transform.rotation;
 

@@ -50,6 +50,8 @@ public class CharacterController: MonoBehaviour
 
     Rigidbody rb;
 
+    //int movementMode = 0;
+
     public bool freeRoam;
     public bool sitting;
 
@@ -77,6 +79,19 @@ public class CharacterController: MonoBehaviour
        
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+
+       /* switch(movementMode)
+        {
+            case 0:
+                //free roam stuff
+                break;
+            case 1:
+                //sitting stuff
+                break;
+            default:
+                //there is an error
+                break;
+        }*/
 
         //sets move state
         if (freeRoam && !sitting)
