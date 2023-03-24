@@ -10,4 +10,9 @@ public class GameManager : MonoBehaviour
     float masterVolume;
     float musicVolume;
 
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
 }
