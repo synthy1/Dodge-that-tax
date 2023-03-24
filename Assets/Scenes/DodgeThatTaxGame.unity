@@ -245,8 +245,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.011908, y: 0.0046027}
-  m_SizeDelta: {x: 0.0018840004, y: 0.0017949995}
+  m_AnchoredPosition: {x: -0.011929, y: 0.005268}
+  m_SizeDelta: {x: 0.00084100105, y: 0.0011639996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &78051076
 MonoBehaviour:
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -884630281158473194, guid: b33e7f475130c2d4b99ed003cf4ac6cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -384,7 +384,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20482
+  m_Name: pb_Mesh21050
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -736,19 +736,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 600356154}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -21.98}
+  m_LocalRotation: {x: 0.019688573, y: -0.07049436, z: 0.0010171926, w: 0.9973173}
+  m_LocalPosition: {x: 0, y: 0, z: -21.4985}
   m_LocalScale: {x: 141.25, y: 141.25, z: 141.25}
   m_Children:
   - {fileID: 593658029}
   - {fileID: 78051075}
   m_Father: {fileID: 0}
   m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 2.259, y: -8.087, z: -0.043}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.8955, y: 12.7074}
-  m_SizeDelta: {x: 0.0257, y: 0.011}
+  m_AnchoredPosition: {x: -1.0955, y: 12.666}
+  m_SizeDelta: {x: 0.0247, y: 0.0117}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &771028881
 GameObject:
@@ -1407,8 +1407,8 @@ GameObject:
   - component: {fileID: 1479670697}
   - component: {fileID: 1479670700}
   - component: {fileID: 1479670699}
-  - component: {fileID: 1479670698}
   - component: {fileID: 1479670701}
+  - component: {fileID: 1479670698}
   m_Layer: 5
   m_Name: Buy button
   m_TagString: WebInt
@@ -1432,7 +1432,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.32473108}
   m_AnchorMax: {x: 1, y: 0.6638383}
-  m_AnchoredPosition: {x: 0.00017500017, y: 0.0000000017462298}
+  m_AnchoredPosition: {x: 0.00017500017, y: 0.0000000018626451}
   m_SizeDelta: {x: -0.002971, y: -0.000000004191}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1479670698
@@ -1448,7 +1448,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000017881393, y: 0}
+  m_Offset: {x: -0.00027833367, y: -0.00011076755}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1459,7 +1459,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.5912333, y: 1}
+  m_Size: {x: 0.009759205, y: 0.004267048}
   m_EdgeRadius: 0
 --- !u!114 &1479670699
 MonoBehaviour:
@@ -1628,7 +1628,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20244
+  m_Name: pb_Mesh20812
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4633,6 +4633,7 @@ GameObject:
   - component: {fileID: 8907149242769099746}
   - component: {fileID: 5697243827524808522}
   - component: {fileID: 5697243827524808523}
+  - component: {fileID: 5697243827524808524}
   m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
@@ -6909,6 +6910,19 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!65 &5697243827524808524
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5697243827524808521}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00029932766, y: 0.019999996, z: 0.96855295}
+  m_Center: {x: -0.00985035, y: 2.2418646e-17, z: 0.4742764}
 --- !u!1 &5784737864105200738
 GameObject:
   m_ObjectHideFlags: 0

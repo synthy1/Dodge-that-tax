@@ -34,7 +34,7 @@ public class CursorScript : MonoBehaviour
             mouseY = mouseY + (Input.GetAxis("Mouse Y") * 0.001f);
 
             mouseX = Mathf.Clamp(mouseX, -0.011908f, 0.011908f);
-            mouseY = Mathf.Clamp(mouseY, -0.0046027f, 0.0046027f);
+            mouseY = Mathf.Clamp(mouseY, -0.005268f, 0.005268f);
 
             cursorPosData.anchoredPosition = new Vector3(mouseX, mouseY, transform.position.z);
         }
@@ -47,7 +47,7 @@ public class CursorScript : MonoBehaviour
         {
             collision.GetComponent<WebInteractable>().Hover();
 
-            if (Input.GetKeyUp(click1))
+            if (Input.GetKey(click1))
             {
                 collision.GetComponent<WebInteractable>().ClickedOn();
             }
