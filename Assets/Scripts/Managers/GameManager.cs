@@ -6,9 +6,9 @@ public class GameManager : MonoBehaviour
 {
     [Header("Settings")]
 
-    int dificulty;
-    float masterVolume;
-    float musicVolume;
+    public int dificulty;
+    public float masterVolume;
+    public float musicVolume;
 
     private void Start()
     {
