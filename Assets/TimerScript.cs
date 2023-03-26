@@ -12,9 +12,9 @@ public class TimerScript : MonoBehaviour
 
     [Header("Bools")]
     public bool gameStartl;
+    public bool gameStopl = false;
 
     [Header("floats")]
-    float gameStartTimer = 30f;
     float timer;
 
     // Start is called before the first frame update
@@ -47,16 +47,26 @@ public class TimerScript : MonoBehaviour
         timerText.enabled = false ;
         if (gameStartl)
         {
-            timerText.text = timer.ToString("00:00");
             timerText.enabled = true;
 
             CountDown();
+            TimeToDisplay(timer);
         }
     }
 
     private void CountDown()
     {
-        timer = timer - Time.unscaledTime;
+
+
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
+
+        else
+        {
+            timer = 0;
+        }
 
         if (timer == 10f)
         {
@@ -64,5 +74,19 @@ public class TimerScript : MonoBehaviour
 
             //Play sfx
         }
+    }
+
+    private void TimeToDisplay(float timeToDisplay)
+    {
+        if (timeToDisplay < 0)
+        {
+            timeToDisplay = 0;
+            gameStopl = true;
+        }
+
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
