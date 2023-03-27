@@ -1430,6 +1430,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcac1072cdd931540b92e04b96ef62d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dificulty: 0
+  masterVolume: 0
+  musicVolume: 0
 --- !u!4 &983815472
 Transform:
   m_ObjectHideFlags: 0
