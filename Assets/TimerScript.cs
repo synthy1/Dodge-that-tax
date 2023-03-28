@@ -15,7 +15,7 @@ public class TimerScript : MonoBehaviour
     public bool gameStopl = false;
 
     [Header("floats")]
-    float timer;
+    public float timer;
 
     // Start is called before the first frame update
     private void Start()
@@ -58,14 +58,14 @@ public class TimerScript : MonoBehaviour
     {
 
 
-        if (timer > 0)
+        if (timer > 0f)
         {
             timer -= Time.deltaTime;
         }
 
-        else
+        if (timer < 1f)
         {
-            timer = 0;
+            timer = 0f;
         }
 
         if (timer == 10f)

@@ -2,14 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhoneQTE : MonoBehaviour
+public class PhoneQTE :Interactable
 {
     [Header("Refrenses")]
     GameManager gameManager;
     public AudioClip ringSFX;
+    public TimerScript time;
 
     [Header("Settings")]
     public float qteChance;
+    public float durationToCheck = 1;
+    float checkTimer = 1;
+    bool active = false;
+    bool stopRing = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,25 +24,74 @@ public class PhoneQTE : MonoBehaviour
         //Easy
         if (gameManager.dificulty == 0)
         {
-            qteChance = 100f;
+            qteChance = 0.1f;
         }
 
         //Medium
         if (gameManager.dificulty == 1)
         {
-            qteChance = 50f;
+            qteChance = 0.3f;
         }
 
         //Hard
         if (gameManager.dificulty == 2)
         {
-            qteChance = 10f;
+            qteChance = 0.5f;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        checkTimer += Time.deltaTime;
+
+        if(checkTimer > durationToCheck)
+        {
+            if (Random.value >= qteChance && !active)
+            {
+                Debug.Log("ran");
+                active = true;
+            }
+            checkTimer = 0f;
+
+        }
+
+
+        if (active)
+        {
+            stopRing = false;
+            PhoneRing();
+        }
+
+
+    }
+
+
+    public override void OnInteract()
+    {
+        stopRing = true;
+        active = false;
+    }
+
+    public override void OnFocus()
+    {
+
+    }
+
+    public override void OnLoseFocus()
+    {
+
+    }
+
+    void PhoneRing()
+    {
         
+
+        if (checkTimer > durationToCheck)
+        {
+            time.timer = time.timer - Random.Range(1f, 5f);
+            Debug.Log("time deduct");
+            gameObject.GetComponent<AudioSource>().PlayOneShot(ringSFX);
+        }
     }
 }
