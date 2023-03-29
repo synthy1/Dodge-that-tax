@@ -12,6 +12,7 @@ public class PhoneQTE :Interactable
     [Header("Settings")]
     public float qteChance;
     public float durationToCheck = 1;
+    public float phoneDamage = 0.03f;
     float checkTimer = 1;
     bool active = false;
     bool stopRing = false;
@@ -20,50 +21,57 @@ public class PhoneQTE :Interactable
     // Start is called before the first frame update
     void Start()
     {
-        sound = gameObject.GetComponent<AudioSource>()
+        sound = gameObject.GetComponent<AudioSource>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
         //Easy
         if (gameManager.dificulty == 0)
         {
             qteChance = 0.1f;
+            phoneDamage = 0.03f;
         }
 
         //Medium
         if (gameManager.dificulty == 1)
         {
             qteChance = 0.3f;
+            phoneDamage = 0.05f;
         }
 
         //Hard
         if (gameManager.dificulty == 2)
         {
             qteChance = 0.5f;
+            phoneDamage = 0.09f;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        checkTimer += Time.deltaTime;
-
-        if(checkTimer > durationToCheck)
+        if (time.gameStartl)
         {
-            if (Random.value >= qteChance && !active)
+            checkTimer += Time.deltaTime;
+
+            if (checkTimer > durationToCheck)
             {
-                Debug.Log("ran");
-                active = true;
+                if (Random.value >= qteChance && !active)
+                {
+                    Debug.Log("ran");
+                    active = true;
+                }
+                checkTimer = 0f;
+
             }
-            checkTimer = 0f;
 
+
+            if (active)
+            {
+                stopRing = false;
+                PhoneRing();
+            }
         }
 
-
-        if (active)
-        {
-            stopRing = false;
-            PhoneRing();
-        }
 
 
     }
@@ -88,11 +96,13 @@ public class PhoneQTE :Interactable
 
     void PhoneRing()
     {
-        sound.Play();
+        sound.PlayOneShot(ringSFX);
 
-        if (checkTimer > durationToCheck)
+        Debug.Log("phone");
+
+        if (checkTimer > durationToCheck/2f)
         {
-            time.timer = time.timer - Random.Range(1f, 5f);
+            time.timer = time.timer - Random.Range(0.01f, phoneDamage);
             Debug.Log("time deduct");
             
         }

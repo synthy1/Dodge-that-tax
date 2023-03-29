@@ -47,7 +47,7 @@ public class CursorScript : MonoBehaviour
         {
             collision.GetComponent<WebInteractable>().Hover();
 
-            if (Input.GetKey(click1))
+            if (Input.GetKeyUp(click1))
             {
                 collision.GetComponent<WebInteractable>().ClickedOn();
             }
