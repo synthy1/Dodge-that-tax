@@ -15,10 +15,12 @@ public class PhoneQTE :Interactable
     float checkTimer = 1;
     bool active = false;
     bool stopRing = false;
+    AudioSource sound;
 
     // Start is called before the first frame update
     void Start()
     {
+        sound = gameObject.GetComponent<AudioSource>()
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
         //Easy
@@ -71,6 +73,7 @@ public class PhoneQTE :Interactable
     {
         stopRing = true;
         active = false;
+        sound.Stop();
     }
 
     public override void OnFocus()
@@ -85,13 +88,13 @@ public class PhoneQTE :Interactable
 
     void PhoneRing()
     {
-        
+        sound.Play();
 
         if (checkTimer > durationToCheck)
         {
             time.timer = time.timer - Random.Range(1f, 5f);
             Debug.Log("time deduct");
-            gameObject.GetComponent<AudioSource>().PlayOneShot(ringSFX);
+            
         }
     }
 }
