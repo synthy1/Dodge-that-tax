@@ -38,4 +38,8 @@ public class Chair : Interactable
         player = GameObject.Find("Player").GetComponent<CharacterController>();
     }
 
+    public override void OnPickUp()
+    {
+
+    }
 }

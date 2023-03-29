@@ -107,4 +107,9 @@ public class PhoneQTE :Interactable
             
         }
     }
+
+    public override void OnPickUp()
+    {
+
+    }
 }

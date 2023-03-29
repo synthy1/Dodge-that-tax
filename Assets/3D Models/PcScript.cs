@@ -25,6 +25,11 @@ public class PcScript : Interactable
 
     }
 
+    public override void OnPickUp()
+    {
+
+    }
+
 
     // Start is called before the first frame update
     void Start()
