@@ -8,6 +8,7 @@ public class Trowable : Interactable
     [Header("refrenses")]
     public Transform holdingTrans;
     public GameObject breakableObject;
+    public Rigidbody playerRB;
 
     [Header("bools")]
     public bool isPickedUp;
@@ -16,7 +17,7 @@ public class Trowable : Interactable
     KeyCode throwInput = KeyCode.Mouse1;
 
     [Header("Settings")]
-    public float throwIntecity = 1;
+    public float throwIntecity = 50;
 
 
     public override void OnFocus()
@@ -44,25 +45,28 @@ public class Trowable : Interactable
     {
         if (isPickedUp)
         {
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
             gameObject.transform.position = holdingTrans.position;
+            gameObject.transform.rotation = holdingTrans.rotation;
             if (Input.GetKey(throwInput))
             {
 
-                throwIntecity += Time.deltaTime;
+                throwIntecity += 1;
 
             }
 
             if (Input.GetKeyUp(throwInput))
             {
-                gameObject.GetComponent<Rigidbody>().AddForce(holdingTrans.forward * throwIntecity, ForceMode.Impulse);
-                throwIntecity = 1f;
+                gameObject.GetComponent<Rigidbody>().AddForce((holdingTrans.forward * throwIntecity) + playerRB.velocity, ForceMode.Impulse);
+                throwIntecity = 50f;
+                gameObject.GetComponent<Rigidbody>().useGravity = true;
                 isPickedUp = false;
             }
         }
 
-        if (throwIntecity >= 5)
+        if (throwIntecity >= 100)
         {
-            throwIntecity = 5;
+            throwIntecity = 100;
         }
     }
 }

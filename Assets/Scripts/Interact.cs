@@ -24,12 +24,7 @@ public class Interact : MonoBehaviour
                 }
                 if (Input.GetKeyDown(pickUp))
                 {
-                    hit.collider.GetComponent<Trowable>().throwIntecity += Time.deltaTime;
-
-                    if (Input.GetKeyDown(pickUp))
-                    {
-                        hitObjectInteract.OnPickUp();
-                    }
+                    hitObjectInteract.OnPickUp();
 
                 }
             }
