@@ -515,7 +515,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28776
+  m_Name: pb_Mesh26680
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2300,7 +2300,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28444
+  m_Name: pb_Mesh26348
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4418,7 +4418,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29202
+  m_Name: pb_Mesh27106
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7566,8 +7566,12 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 128
+  pickUpTarget: {fileID: 1398177593}
+  throwSpeed: 10
   interact: 101
   pickUp: 102
+  throwInput: 324
+  player: {fileID: 8842894}
 --- !u!1 &2064075404
 GameObject:
   m_ObjectHideFlags: 0
@@ -19809,9 +19813,9 @@ GameObject:
   - component: {fileID: 5047820325603578007}
   - component: {fileID: 3509653911047970570}
   - component: {fileID: 8086378151039747583}
-  - component: {fileID: 8533089069864829587}
   - component: {fileID: 8533089069864829586}
   - component: {fileID: 8533089069864829588}
+  - component: {fileID: 8533089069864829589}
   m_Layer: 7
   m_Name: Intact Vase
   m_TagString: Untagged
@@ -19834,24 +19838,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 1
---- !u!114 &8533089069864829587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8533089069864829585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d73246755e591b41bfe65bce7d0fd7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  holdingTrans: {fileID: 1398177593}
-  breakableObject: {fileID: 1021787095251450137, guid: dce61f25556e2ef46a2ba889e141f7cf, type: 3}
-  playerRB: {fileID: 8842894}
-  isPickedUp: 0
-  throwIntecity: 50
+  m_CollisionDetection: 0
 --- !u!65 &8533089069864829588
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19865,6 +19852,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.024583975, y: 0.024583979, z: 0.06799415}
   m_Center: {x: -2.130385e-10, y: -0.0000000020128614, z: 0.023997072}
+--- !u!114 &8533089069864829589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8533089069864829585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c8e97e855c1b741bff406fa5f95903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breakableObj: {fileID: 7531409730678874324, guid: dce61f25556e2ef46a2ba889e141f7cf, type: 3}
+  thrown: 0
 --- !u!4 &8604075892595319203
 Transform:
   m_ObjectHideFlags: 0
