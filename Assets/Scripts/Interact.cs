@@ -27,11 +27,12 @@ public class Interact : MonoBehaviour
             var hitObjectInteract = hit.collider.GetComponent<Interactable>();
             if(hitObjectInteract != null)
             {
-               
+
                 if (Input.GetKeyDown(interact))
                 {
                     hitObjectInteract.OnInteract();
                 }
+
                 if (Input.GetKeyDown(pickUp))
                 {
                     if (currentRB)
@@ -42,18 +43,16 @@ public class Interact : MonoBehaviour
                     }
                     currentRB = hit.rigidbody;
                     currentRB.useGravity = false;
-
+                    hit.collider.GetComponent<Break>().thrown = false;
                 }
+
                 if (Input.GetKeyDown(throwInput))
                 {
-                    hit.collider.GetComponent<Break>().thrown = true;
+
                     currentRB.useGravity = true;
                     currentRB.AddForce((player.transform.forward * throwSpeed) + player.velocity, ForceMode.Impulse);
                     currentRB = null;
-                }
-                if (Input.GetKeyUp(throwInput))
-                {
-                    hit.collider.GetComponent<Break>().thrown = false;
+                    hit.collider.GetComponent<Break>().thrown = true;
                 }
             }
 
