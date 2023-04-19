@@ -6,7 +6,6 @@ public class PhoneQTE :Interactable
 {
     [Header("Refrenses")]
     GameManager gameManager;
-    public AudioClip ringSFX;
     public TimerScript time;
 
     [Header("Settings")]
@@ -81,7 +80,7 @@ public class PhoneQTE :Interactable
     {
         stopRing = true;
         active = false;
-        sound.Stop();
+        sound.enabled = false;
     }
 
     public override void OnFocus()
@@ -96,7 +95,7 @@ public class PhoneQTE :Interactable
 
     void PhoneRing()
     {
-        sound.PlayOneShot(ringSFX);
+        sound.enabled = true;
 
         Debug.Log("phone");
 
