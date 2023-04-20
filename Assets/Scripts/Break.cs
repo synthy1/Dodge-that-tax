@@ -56,8 +56,8 @@ public class Break : MonoBehaviour
         
         foreach(Rigidbody rb in frac.GetComponentsInChildren<Rigidbody>())
         {
-            Vector3 force = (rb.transform.position - transform.position).normalized * breakForce;
-            rb.AddForce(force);
+            //Vector3 force = (rb.transform.localPosition - transform.position).normalized * breakForce;
+            //rb.AddForce(force);
         }
 
         Destroy(gameObject);

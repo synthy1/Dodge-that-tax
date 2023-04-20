@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 955908c24314c00488ac3d2cc0e4536a
+guid: e94fb5fa47e50f14b8276077ca14ae7b
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -7,20 +7,11 @@ ModelImporter:
       74: -1773092131571747656
     second: Phone ring|Cube.005Action
   - first:
-      74: -1525784631704706056
-    second: Phone ring|Cube.005Action.001
-  - first:
       74: -2199904164841187403
     second: Phone ring|Phone idleAction
   - first:
-      74: -3286794871577511007
-    second: Phone idle|Cube.005Action
-  - first:
-      74: 3745598378622903514
-    second: Phone idle|Cube.005Action.001
-  - first:
-      74: 1707039026081047168
-    second: Phone idle|Phone idleAction
+      74: -2609310348783373708
+    second: Phone ring|Phone idleAction.002
   externalObjects: {}
   materials:
     materialImportMode: 2

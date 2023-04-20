@@ -43,7 +43,13 @@ public class Interact : MonoBehaviour
                     }
                     currentRB = hit.rigidbody;
                     currentRB.useGravity = false;
-                    hit.collider.GetComponent<Break>().thrown = false;
+
+                    Break br = hit.collider.GetComponent<Break>();
+
+                    if (br != null)
+                    {
+                        br.thrown = true;
+                    }
                 }
 
                 if (Input.GetKeyDown(throwInput))
@@ -52,7 +58,13 @@ public class Interact : MonoBehaviour
                     currentRB.useGravity = true;
                     currentRB.AddForce((player.transform.forward * throwSpeed) + player.velocity, ForceMode.Impulse);
                     currentRB = null;
-                    hit.collider.GetComponent<Break>().thrown = true;
+
+                    Break br = hit.collider.GetComponent<Break>();
+
+                    if (br != null)
+                    {
+                        br.thrown = true;
+                    }
                 }
             }
 
