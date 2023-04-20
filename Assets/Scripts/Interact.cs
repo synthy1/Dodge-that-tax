@@ -48,7 +48,7 @@ public class Interact : MonoBehaviour
 
                     if (br != null)
                     {
-                        br.thrown = true;
+                        br.thrown = false;
                     }
                 }
 

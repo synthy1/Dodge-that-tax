@@ -35,29 +35,29 @@ public class Break : MonoBehaviour
         {
             if(!decor)
             {
-                BreakThatThing();
+                BreakThatThing(collision.impactForceSum * -breakForce);
             }
 
             if (decor)
             {
                 if (thrown)
                 {
-                    BreakThatThing();
+                    BreakThatThing(collision.impactForceSum * -breakForce);
                 }
             }
 
         } 
     }
 
-    public void BreakThatThing()
+    public void BreakThatThing(Vector3 force)
     {
 
         GameObject frac = Instantiate(breakableObj, transform.position, transform.rotation);
         
         foreach(Rigidbody rb in frac.GetComponentsInChildren<Rigidbody>())
         {
-            //Vector3 force = (rb.transform.localPosition - transform.position).normalized * breakForce;
-            //rb.AddForce(force);
+            
+            rb.AddForce(force);
         }
 
         Destroy(gameObject);
