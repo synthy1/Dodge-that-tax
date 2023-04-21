@@ -7,6 +7,9 @@ public class Break : MonoBehaviour
 
     public GameObject breakableObj;
     public float breakForce = 10;
+    public bool brokie = false;
+    public AudioClip[] sfxs;
+    public AudioSource playSfx;
 
     [SerializeField] public bool thrown = false;
 
@@ -35,15 +38,29 @@ public class Break : MonoBehaviour
         {
             if(!decor)
             {
-                BreakThatThing(collision.impactForceSum * -breakForce);
+                if (!brokie)
+                {
+                    playSfx.time = 3f;
+                    playSfx.PlayOneShot(sfxs[Random.Range(0, sfxs.Length)]);
+                    BreakThatThing(collision.impactForceSum * -breakForce);
+                }
+                brokie = true;
             }
 
             if (decor)
             {
                 if (thrown)
                 {
-                    BreakThatThing(collision.impactForceSum * -breakForce);
+                    if (!brokie)
+                    {
+                        playSfx.time = 3f;
+                        playSfx.PlayOneShot(sfxs[Random.Range(0, sfxs.Length)]);
+                        BreakThatThing(collision.impactForceSum * -breakForce);
+                    }
+                    brokie = true;
                 }
+
+
             }
 
         } 
