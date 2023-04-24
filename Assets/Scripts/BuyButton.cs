@@ -11,16 +11,19 @@ public class BuyButton : WebInteractable
     public Image button;
 
     public float timeToClick = 1.5f;
+    public float timeToClickAmmount;
+    public float doshMin;
+    public float doshMax;
 
 
     public override void ClickedOn()
     {
         // start timer make clicability false and take away x amount of money
         Debug.Log("clicked");
-        if (timeToClick == 1.5f)
+        if (timeToClickAmmount == timeToClick)
         {
-            doshAmount.dosh -= Random.Range(20000f, 27000f);
-            timeToClick = 0f;
+            doshAmount.dosh -= Random.Range(doshMin, doshMax);
+            timeToClickAmmount = 0f;
         }
 
     }
@@ -39,16 +42,16 @@ public class BuyButton : WebInteractable
     // Update is called once per frame
     void Update()
     {
-        if(timeToClick != 1.5f)
+        if(timeToClickAmmount != timeToClick)
         {
-            timeToClick += Time.deltaTime;
+            timeToClickAmmount += Time.deltaTime;
 
             //placeholder 
             button.color = Color.red;        
         }
-        if (timeToClick > 1.5f)
+        if (timeToClickAmmount > timeToClick)
         {
-            timeToClick = 1.5f;
+            timeToClickAmmount = timeToClick;
             //placeholder 
             button.color = Color.white;
         }

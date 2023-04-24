@@ -1,0 +1,140 @@
+fileFormatVersion: 2
+guid: 0aa91fe18c20e0d43994cf1e692425f2
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: -1206893657774403343
+    second: Phone Ring|Phone idle|Phone idle|Cube.005Action.001|Phone idle|Cube.005Act
+  - first:
+      74: 4352467655702480998
+    second: Phone Ring|Phone idle|Phone idle|Cube.005Action|Phone idle|Cube.005Action
+  - first:
+      74: -8134205812033698464
+    second: Phone Ring|Phone idle|Phone idle|Phone idleAction|Phone idle|Phone idleAct
+  - first:
+      74: 6318199394532866592
+    second: Phone Ring|Phone ring.001|Phone ring|Cube.005Action.001|Phone ring|Cube.00
+  - first:
+      74: -7060709192418546199
+    second: Phone Ring|Phone ring.001|Phone ring|Cube.005Action|Phone ring|Cube.005Act
+  - first:
+      74: -5323057392044226786
+    second: Phone Ring|Phone ring.001|Phone ring|Phone idleAction|Phone ring|Phone
+      idl
+  - first:
+      74: 6490507025509335203
+    second: Phone Ring|Phone RingAction
+  - first:
+      74: 2504407093083987221
+    second: Phone Ring|Phone ring|Phone ring|Cube.005Action|Phone ring|Cube.005Act
+  - first:
+      74: 2184026582280422043
+    second: Phone Ring|Phone ring|Phone ring|Cube.005Action|Phone ring|Cube.005Act.001
+  - first:
+      74: 1231406944971370257
+    second: Phone Ring|Phone ring|Phone ring|Cube.005Action|Phone ring|Cube.005Action
+  - first:
+      74: 6385257684399222573
+    second: Phone Ring|Phone ring|Phone ring|Phone idleAction.002|Phone ring|Phone
+      idl
+  - first:
+      74: -8401755981917029136
+    second: Phone Ring|Phone ring|Phone ring|Phone idleAction|Phone ring|Phone idleAct
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
