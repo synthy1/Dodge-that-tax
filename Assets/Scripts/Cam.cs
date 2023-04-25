@@ -14,13 +14,17 @@ public class Cam : MonoBehaviour
     public float sensY;
 
     [Header("references")]
+    public GameObject hand1;
+    public GameObject hand2;
     public Transform orient;
     public Transform player;
     public Transform snap1;
     public Transform snap2;
     public Transform snap3;
+    public Transform camHolder;
     public Rigidbody rbody;
     public Camera camera;
+    public Camera filtercamera;
 
     public float rotationspeed;
 
@@ -38,12 +42,26 @@ public class Cam : MonoBehaviour
     private void Update()
     {
 
+        if (Input.GetKey(KeyCode.C))
+        {
+            filtercamera.fieldOfView = 20f;
+        }
+
+        else
+        {
+            filtercamera.fieldOfView = 60f;
+        }
 
         //----------------------------------------CAM------------------------------
 
         //free roam
         if (playerBools.freeRoam && !playerBools.sitting)
         {
+
+            camera.transform.SetParent(camHolder);
+            hand1.SetActive(true);
+            hand2.SetActive(true);
+
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
@@ -66,33 +84,39 @@ public class Cam : MonoBehaviour
         if (!playerBools.freeRoam && playerBools.sitting)
         {
 
+            camera.transform.SetParent(null);
+            hand1.SetActive(false);
+            hand2.SetActive(false);
+
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
+
             if (Input.GetKeyDown(KeyCode.D))
             {
+                LeanTween.move(camera.gameObject, snap1.transform.position, 0.1f);
                 camera.transform.rotation = snap1.rotation;
-                camera.transform.position = snap1.position;
+
 
             }
 
-            else if (Input.GetKeyUp(KeyCode.D))
+            if (Input.GetKeyUp(KeyCode.D))
             {
+                LeanTween.move(camera.gameObject, snap3.transform.position, 0.1f);
                 camera.transform.rotation = snap3.rotation;
-                camera.transform.position = snap3.position;
             }
 
             if (Input.GetKeyDown(KeyCode.A))
             {
+                LeanTween.move(camera.gameObject, snap2.transform.position, 0.1f);
                 camera.transform.rotation = snap2.rotation;
-                camera.transform.position = snap2.position;
 
             }
 
-            else if (Input.GetKeyUp(KeyCode.A))
+            if (Input.GetKeyUp(KeyCode.A))
             {
+                LeanTween.move(camera.gameObject, snap3.transform.position, 0.1f);
                 camera.transform.rotation = snap3.rotation;
-                camera.transform.position = snap3.position;
             }
 
         }
