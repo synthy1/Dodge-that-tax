@@ -9,6 +9,7 @@ public class TimerScript : MonoBehaviour
     [Header("Refrenses")]
     public Text timerText;
     GameManager gameManager;
+    public DoshScript money;
 
     [Header("Bools")]
     public bool gameStartl;
@@ -45,12 +46,40 @@ public class TimerScript : MonoBehaviour
     void Update()
     {
         timerText.enabled = false ;
-        if (gameStartl)
+        if (gameStartl && !gameStopl)
         {
             timerText.enabled = true;
 
             CountDown();
             TimeToDisplay(timer);
+        }
+
+        if (gameStopl)
+        {
+            timerText.enabled = true;
+
+            //Easy
+            if (gameManager.dificulty == 0)
+            {
+                gameManager.beatEasy = true;
+            }
+
+            //Medium
+            if (gameManager.dificulty == 1)
+            {
+                gameManager.beatMedium = true;
+            }
+
+            //Hard
+            if (gameManager.dificulty == 2)
+            {
+                gameManager.beatHard = true;
+            }
+        }
+
+        if (money.dosh <= 0f)
+        {
+            gameStopl = true;
         }
     }
 

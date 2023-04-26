@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 9648, g: 8227.875, b: 7075.1113, a: 1}
+  m_IndirectSpecularColor: {r: 8956.359, g: 7485.422, b: 7043.5938, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh74442
+  m_Name: pb_Mesh58270
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -845,8 +845,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -15}
-  m_SizeDelta: {x: 0, y: 30}
+  m_AnchoredPosition: {x: 0, y: -23.787094}
+  m_SizeDelta: {x: 0, y: 47.5742}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &191453935
 MonoBehaviour:
@@ -1274,8 +1274,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 30}
+  m_AnchoredPosition: {x: 0, y: 0.0000014305}
+  m_SizeDelta: {x: 100.424, y: 51.3401}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &314732981
 MonoBehaviour:
@@ -1536,6 +1536,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakableObj: {fileID: 4324595897077972866, guid: c385b5fe547d622468dac700308b56d7, type: 3}
   breakForce: 0
+  brokie: 0
+  sfxs: []
+  playSfx: {fileID: 0}
   thrown: 0
   decor: 0
 --- !u!65 &371612699
@@ -1713,8 +1716,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -650.0042, y: -146.596}
-  m_SizeDelta: {x: 424.0817, y: 131.5069}
+  m_AnchoredPosition: {x: -650, y: -124.35115}
+  m_SizeDelta: {x: 414.942, y: 189.5184}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &455040107
 GameObject:
@@ -8865,8 +8868,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -250, y: 75}
-  m_SizeDelta: {x: 351.7963, y: 311.6856}
+  m_AnchoredPosition: {x: -250, y: 100}
+  m_SizeDelta: {x: 335.8, y: 297.5131}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &723721930
 MonoBehaviour:
@@ -9043,8 +9046,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 15}
-  m_SizeDelta: {x: 0, y: 30}
+  m_AnchoredPosition: {x: 0, y: 24.4147}
+  m_SizeDelta: {x: 0, y: 48.8295}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &860842827
 MonoBehaviour:
@@ -9595,6 +9598,9 @@ MonoBehaviour:
   dificulty: 0
   masterVolume: 0
   musicVolume: 0
+  beatEasy: 0
+  beatMedium: 0
+  beatHard: 0
 --- !u!4 &983815472
 Transform:
   m_ObjectHideFlags: 0
@@ -9796,7 +9802,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh74828
+  m_Name: pb_Mesh58640
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10056,7 +10062,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh74502
+  m_Name: pb_Mesh58330
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11343,6 +11349,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakableObj: {fileID: 3908026753085871617, guid: 107575ddef58f6e4f85812a593a9ca9d, type: 3}
   breakForce: 10
+  brokie: 0
+  sfxs: []
+  playSfx: {fileID: 0}
   thrown: 0
   decor: 0
 --- !u!65 &1480007100
@@ -12766,6 +12775,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakableObj: {fileID: 5093999908194291325, guid: 894d511362004fd478a8bbeef8e54e8e, type: 3}
   breakForce: 10
+  brokie: 0
+  sfxs: []
+  playSfx: {fileID: 0}
   thrown: 0
   decor: 1
 --- !u!65 &1679113436

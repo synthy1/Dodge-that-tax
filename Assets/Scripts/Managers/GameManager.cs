@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public int dificulty;
     public float masterVolume;
     public float musicVolume;
+    public bool beatEasy;
+    public bool beatMedium;
+    public bool beatHard;
 
     private void Start()
     {
