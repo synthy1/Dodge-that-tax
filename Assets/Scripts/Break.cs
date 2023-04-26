@@ -34,7 +34,7 @@ public class Break : MonoBehaviour
             BreakThatThing();
         }*/
 
-        if (collision.impactForceSum.magnitude > 1f)
+        if (collision.impactForceSum.magnitude > 20f)
         {
             if(!decor)
             {
