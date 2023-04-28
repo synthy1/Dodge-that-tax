@@ -8,6 +8,7 @@ public class PhoneQTE :Interactable
     GameManager gameManager;
     public TimerScript time;
     Animator animations;
+    Transform startTransform;
 
     [Header("Settings")]
     public float qteChance;
@@ -21,6 +22,7 @@ public class PhoneQTE :Interactable
     // Start is called before the first frame update
     void Start()
     {
+        startTransform = transform;
         animations = GetComponent<Animator>();
         sound = gameObject.GetComponent<AudioSource>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
@@ -58,7 +60,6 @@ public class PhoneQTE :Interactable
             {
                 if (Random.value >= qteChance && !active)
                 {
-                    Debug.Log("ran");
                     active = true;
                 }
                 checkTimer = 0f;
@@ -99,12 +100,10 @@ public class PhoneQTE :Interactable
     {
         sound.enabled = true;
 
-        Debug.Log("phone");
 
         if (checkTimer > durationToCheck/2f)
         {
             time.timer = time.timer - Random.Range(0.01f, phoneDamage);
-            Debug.Log("time deduct");
             
         }
     }
