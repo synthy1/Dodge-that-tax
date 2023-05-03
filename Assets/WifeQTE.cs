@@ -8,7 +8,7 @@ public class WifeQTE : MonoBehaviour
     GameManager gameManager;
     public TimerScript time;
     public GameObject wifePhysical;
-        Transform startTransform;
+    public Transform startTransform;
 
     [Header("Settings")]
     public float qteChance;
@@ -18,13 +18,12 @@ public class WifeQTE : MonoBehaviour
     float wifeTimer = 0;
     float delayTimer = 0;
     bool active = false;
-    bool stopWife = false;
+    bool stopWife = true;
     AudioSource sound;
 
     // Start is called before the first frame update
     void Start()
     {
-        startTransform.position = transform.position;
         sound = gameObject.GetComponent<AudioSource>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
@@ -81,7 +80,7 @@ public class WifeQTE : MonoBehaviour
         if (other.CompareTag("Dosh"))
         {
             Debug.Log("stop");
-            transform.position = startTransform.position;
+            gameObject.transform.position = startTransform.position;
             Destroy(other.gameObject);
             wifePhysical.SetActive(false);
             stopWife = true;
