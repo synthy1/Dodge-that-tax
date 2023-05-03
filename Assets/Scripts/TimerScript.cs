@@ -14,6 +14,8 @@ public class TimerScript : MonoBehaviour
     [Header("Bools")]
     public bool gameStartl;
     public bool gameStopl = false;
+    public bool gameWon = false;
+    public bool gameLoss = false;
 
     [Header("floats")]
     public float timer;
@@ -45,7 +47,7 @@ public class TimerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timerText.enabled = false ;
+        timerText.enabled = false;
         if (gameStartl && !gameStopl)
         {
             timerText.enabled = true;
@@ -54,7 +56,7 @@ public class TimerScript : MonoBehaviour
             TimeToDisplay(timer);
         }
 
-        if (gameStopl)
+        if (gameWon)
         {
             timerText.enabled = true;
 
@@ -80,6 +82,7 @@ public class TimerScript : MonoBehaviour
         if (money.dosh <= 0f)
         {
             gameStopl = true;
+            gameWon = true;
         }
     }
 
@@ -92,9 +95,10 @@ public class TimerScript : MonoBehaviour
             timer -= Time.deltaTime;
         }
 
-        if (timer < 1f)
+        if (timer < 0f)
         {
             timer = 0f;
+            gameLoss = true;
         }
 
         if (timer == 10f)
