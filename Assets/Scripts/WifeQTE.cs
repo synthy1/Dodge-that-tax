@@ -5,7 +5,6 @@ using UnityEngine;
 public class WifeQTE : MonoBehaviour
 {
     [Header("Refrenses")]
-    GameManager gameManager;
     public TimerScript time;
     public GameObject wifePhysical;
     public Transform startTransform;
@@ -25,22 +24,21 @@ public class WifeQTE : MonoBehaviour
     void Start()
     {
         sound = gameObject.GetComponent<AudioSource>();
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
         //Easy
-        if (gameManager.dificulty == 0)
+        if (GameManager.Instance.dificulty == 0)
         {
             qteChance = 0.1f;
         }
 
         //Medium
-        if (gameManager.dificulty == 1)
+        if (GameManager.Instance.dificulty == 1)
         {
             qteChance = 0.3f;
         }
 
         //Hard
-        if (gameManager.dificulty == 2)
+        if (GameManager.Instance.dificulty == 2)
         {
             qteChance = 0.5f;
         }

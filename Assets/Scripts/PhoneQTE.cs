@@ -5,7 +5,6 @@ using UnityEngine;
 public class PhoneQTE :Interactable
 {
     [Header("Refrenses")]
-    GameManager gameManager;
     public TimerScript time;
     Animator animations;
     Transform startTransform;
@@ -25,24 +24,23 @@ public class PhoneQTE :Interactable
         startTransform = transform;
         animations = GetComponent<Animator>();
         sound = gameObject.GetComponent<AudioSource>();
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
         //Easy
-        if (gameManager.dificulty == 0)
+        if (GameManager.Instance.dificulty == 0)
         {
             qteChance = 0.1f;
             phoneDamage = 0.03f;
         }
 
         //Medium
-        if (gameManager.dificulty == 1)
+        if (GameManager.Instance.dificulty == 1)
         {
             qteChance = 0.3f;
             phoneDamage = 0.05f;
         }
 
         //Hard
-        if (gameManager.dificulty == 2)
+        if (GameManager.Instance.dificulty == 2)
         {
             qteChance = 0.5f;
             phoneDamage = 0.09f;

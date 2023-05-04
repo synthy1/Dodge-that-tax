@@ -8,7 +8,6 @@ public class TimerScript : MonoBehaviour
 
     [Header("Refrenses")]
     public Text timerText;
-    GameManager gameManager;
     public DoshScript money;
 
     [Header("Bools")]
@@ -23,22 +22,21 @@ public class TimerScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
         //Easy
-        if(gameManager.dificulty == 0)
+        if(GameManager.Instance.dificulty == 0)
         {
             timer = 300f;
         }
 
         //Medium
-        if (gameManager.dificulty == 1)
+        if (GameManager.Instance.dificulty == 1)
         {
             timer = 180f;
         }
 
         //Hard
-        if (gameManager.dificulty == 2)
+        if (GameManager.Instance.dificulty == 2)
         {
             timer = 60f;
         }
@@ -61,21 +59,21 @@ public class TimerScript : MonoBehaviour
             timerText.enabled = true;
 
             //Easy
-            if (gameManager.dificulty == 0)
+            if (GameManager.Instance.dificulty == 0)
             {
-                gameManager.beatEasy = true;
+                GameManager.Instance.beatEasy = true;
             }
 
             //Medium
-            if (gameManager.dificulty == 1)
+            if (GameManager.Instance.dificulty == 1)
             {
-                gameManager.beatMedium = true;
+                GameManager.Instance.beatMedium = true;
             }
 
             //Hard
-            if (gameManager.dificulty == 2)
+            if (GameManager.Instance.dificulty == 2)
             {
-                gameManager.beatHard = true;
+                GameManager.Instance.beatHard = true;
             }
         }
 

@@ -8,7 +8,6 @@ public class DoshScript : MonoBehaviour
 
     [Header("Refrenses")]
     public Text doshText;
-    GameManager gameManager;
 
     [Header("float")]
     public float dosh;
@@ -16,22 +15,20 @@ public class DoshScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-
         //Easy
-        if (gameManager.dificulty == 0)
+        if (GameManager.Instance.dificulty == 0)
         {
             dosh = 50000000f;
         }
 
         //Medium
-        if (gameManager.dificulty == 1)
+        if (GameManager.Instance.dificulty == 1)
         {
             dosh = 100000000f;
         }
 
         //Hard
-        if (gameManager.dificulty == 2)
+        if (GameManager.Instance.dificulty == 2)
         {
             dosh = 500000000f;
         }
@@ -41,5 +38,11 @@ public class DoshScript : MonoBehaviour
     void Update()
     {
         doshText.text = dosh.ToString("0");
+
+
+        if(dosh <= 0)
+        {
+            dosh = 0;
+        }
     }
 }
