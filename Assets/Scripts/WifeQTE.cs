@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WifeQTE : MonoBehaviour
 {
@@ -11,13 +12,13 @@ public class WifeQTE : MonoBehaviour
 
     [Header("Settings")]
     public float qteChance;
-    public float durationToCheck = 1;
+    public float durationToCheck = 3;
    
     float checkTimer = 1;
     float wifeTimer = 0;
     float delayTimer = 0;
-    bool active = false;
-    bool stopWife = true;
+    [SerializeField] bool active = false;
+    [SerializeField] bool stopWife = true;
     AudioSource sound;
 
     // Start is called before the first frame update
@@ -47,13 +48,13 @@ public class WifeQTE : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        if (time.gameStartl)
+        if (time.gameStartl && !active)
         {
             checkTimer += Time.deltaTime;
 
             if (checkTimer > durationToCheck)
             {
-                if (Random.value >= qteChance && !active)
+                if (Random.value >= qteChance)
                 {
                     active = true;
                 }
@@ -62,15 +63,15 @@ public class WifeQTE : MonoBehaviour
             }
 
 
-            if (active)
-            {
-                wifePhysical.SetActive(true);
-                stopWife = false;
-                Wife();
-            }
+
         }
 
-
+        if (active)
+        {
+            wifePhysical.SetActive(true);
+            stopWife = false;
+            Wife();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -90,7 +91,7 @@ public class WifeQTE : MonoBehaviour
 
     void Wife()
     {
-
+        Debug.Log("Wifeactive");
 
         if (stopWife == false)
         {
@@ -109,10 +110,18 @@ public class WifeQTE : MonoBehaviour
 
                 //delay end of game
                 delayTimer += Time.deltaTime;
-                if (delayTimer >= 5)
+                if (delayTimer >= 10)
                 {
                     time.gameStopl = true;
                     Debug.Log("endgame");
+
+                    //unlocks mouse
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+
+                    //loads lose screen
+                    SceneManager.LoadScene(2);
+
                 }
 
             }

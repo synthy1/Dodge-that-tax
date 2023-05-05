@@ -50,13 +50,13 @@ public class PhoneQTE :Interactable
     // Update is called once per frame
     void Update()
     {
-        if (time.gameStartl)
+        if (time.gameStartl && !active)
         {
             checkTimer += Time.deltaTime;
 
             if (checkTimer > durationToCheck)
             {
-                if (Random.value >= qteChance && !active)
+                if (Random.value >= qteChance)
                 {
                     active = true;
                 }
@@ -65,11 +65,13 @@ public class PhoneQTE :Interactable
             }
 
 
-            if (active)
-            {
-                stopRing = false;
-                PhoneRing();
-            }
+
+        }
+
+        if (active)
+        {
+            stopRing = false;
+            PhoneRing();
         }
 
         animations.SetBool("Active", active);
