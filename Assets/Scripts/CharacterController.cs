@@ -50,6 +50,10 @@ public class CharacterController: MonoBehaviour
 
     Rigidbody rb;
 
+    public Transform snap3;
+    public Transform snap1;
+    public Transform snap2;
+
     //int movementMode = 0;
 
     public bool freeRoam;
@@ -144,8 +148,10 @@ public class CharacterController: MonoBehaviour
     private void MyInput2()
     {
         // when to exit desk
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && (playerCam.gameObject.transform.position == snap3.position || playerCam.gameObject.transform.position == snap1.position || playerCam.gameObject.transform.position == snap2.position))
         {
+
+            
             freeRoam = true;
             sitting = false;
 
