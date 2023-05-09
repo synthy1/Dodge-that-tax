@@ -14,8 +14,8 @@ public class PhoneQTE :Interactable
     public float durationToCheck = 1;
     public float phoneDamage = 0.03f;
     float checkTimer = 1;
-    bool active = false;
-    bool stopRing = false;
+    public bool active = false;
+    public bool stopRing = false;
     AudioSource sound;
 
     // Start is called before the first frame update

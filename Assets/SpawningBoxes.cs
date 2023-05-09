@@ -19,7 +19,9 @@ public class SpawningBoxes : MonoBehaviour
     {
         if(buy.timeToClickAmmount == 0)
         {
-            Instantiate(box);
+            GameObject boxObj = Instantiate(box, transform.position, transform.rotation);
+
+            boxObj.GetComponent<Rigidbody>().AddForce(new Vector3(transform.position.x + 50f, transform.position.y, transform.position.z), ForceMode.Impulse);
         }
     }
 }

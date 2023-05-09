@@ -17,9 +17,11 @@ public class WifeQTE : MonoBehaviour
     float checkTimer = 1;
     float wifeTimer = 0;
     float delayTimer = 0;
-    [SerializeField] bool active = false;
-    [SerializeField] bool stopWife = true;
-    AudioSource sound;
+    public bool active = false;
+    public bool stopWife = false;
+    public AudioSource sound;
+    public AudioSource jumpscare;
+    public AudioClip jumpscareSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -82,10 +84,10 @@ public class WifeQTE : MonoBehaviour
             gameObject.transform.position = startTransform.position;
             Destroy(other.gameObject);
             wifePhysical.SetActive(false);
-            stopWife = true;
             wifeTimer = 0f;
             active = false;
-            
+            stopWife = true;
+
         }
     }
 
@@ -104,6 +106,8 @@ public class WifeQTE : MonoBehaviour
             {
                 //run jumscare
                 Debug.Log("Boo jumpscare");
+                sound.Stop();
+                jumpscare.PlayOneShot(jumpscareSFX);
 
 
 
@@ -126,6 +130,5 @@ public class WifeQTE : MonoBehaviour
 
             }
         }
-        stopWife = false;
     }
 }

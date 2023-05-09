@@ -24,13 +24,13 @@ public class DoshScript : MonoBehaviour
         //Medium
         if (GameManager.Instance.dificulty == 1)
         {
-            dosh = 100000000f;
+            dosh = 75000000f;
         }
 
         //Hard
         if (GameManager.Instance.dificulty == 2)
         {
-            dosh = 500000000f;
+            dosh = 100000000f;
         }
     }
 

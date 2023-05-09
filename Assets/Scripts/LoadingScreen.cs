@@ -9,6 +9,7 @@ public class LoadingScreen : MonoBehaviour
     public GameObject loadingScreen;
     public Image loadingBarFill;
 
+
     public void LoadScene(int sceneId)
     {
         StartCoroutine(LoadSceneAsync(sceneId));
@@ -16,13 +17,19 @@ public class LoadingScreen : MonoBehaviour
 
     IEnumerator LoadSceneAsync(int sceneId)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
-
         loadingScreen.SetActive(true);
+
+        loadingBarFill.fillAmount += 0.05f;
+
+
+        yield return new WaitForSecondsRealtime(3);
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
 
         while (!operation.isDone)
         {
-            float progressValue = Mathf.Clamp01(operation.progress / 0.9f);
+
+            float progressValue = Mathf.Clamp01((operation.progress / 0.9f) + 0.5f);
 
             loadingBarFill.fillAmount = progressValue;
 
