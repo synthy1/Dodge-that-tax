@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimerScript : MonoBehaviour
 {
@@ -62,18 +63,21 @@ public class TimerScript : MonoBehaviour
             if (GameManager.Instance.dificulty == 0)
             {
                 GameManager.Instance.beatEasy = true;
+                SceneManager.LoadScene(3);
             }
 
             //Medium
             if (GameManager.Instance.dificulty == 1)
             {
                 GameManager.Instance.beatMedium = true;
+                SceneManager.LoadScene(3);
             }
 
             //Hard
             if (GameManager.Instance.dificulty == 2)
             {
                 GameManager.Instance.beatHard = true;
+                SceneManager.LoadScene(3);
             }
         }
 
