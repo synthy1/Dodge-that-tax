@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: d152aeb830b6ff24993de5268d0c5837
+guid: 580741fd5017ccd41876958d55dc041c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7202889406415229398
-    second: DTT buttons_0
+      213: 4141126327010549632
+    second: menuy buttons (1)_0
   - first:
-      213: 1247390395024907003
-    second: DTT buttons_1
+      213: 1135823575133545322
+    second: menuy buttons (1)_1
   - first:
-      213: 8957561126668387153
-    second: DTT buttons_2
+      213: -3461639075927057899
+    second: menuy buttons (1)_2
   - first:
-      213: -7594728540760985130
-    second: DTT buttons_3
+      213: -3615100486306496287
+    second: menuy buttons (1)_3
   - first:
-      213: -2706633605280212291
-    second: DTT buttons_4
+      213: -3365996684619138559
+    second: menuy buttons (1)_4
   - first:
-      213: -5746518672855343552
-    second: DTT buttons_5
+      213: 8274612903435066968
+    second: menuy buttons (1)_5
+  - first:
+      213: -9112529317767896478
+    second: menuy buttons (1)_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -83,7 +86,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 2
@@ -95,7 +98,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 2
@@ -109,127 +112,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DTT buttons_0
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 229
-        width: 179
-        height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2e22365f323a0c90800000000000000
-      internalID: -7202889406415229398
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DTT buttons_1
-      rect:
-        serializedVersion: 2
-        x: 235
-        y: 229
-        width: 179
-        height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bfa91bf84fe9f4110800000000000000
-      internalID: 1247390395024907003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DTT buttons_2
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 149
-        width: 172
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 153cae0b266af4c70800000000000000
-      internalID: 8957561126668387153
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DTT buttons_3
-      rect:
-        serializedVersion: 2
-        x: 214
-        y: 149
-        width: 199
-        height: 42
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6d1bb6a71aa1a9690800000000000000
-      internalID: -7594728540760985130
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DTT buttons_4
+      name: menuy buttons (1)_0
       rect:
         serializedVersion: 2
         x: 2
-        y: 77
-        width: 179
-        height: 46
+        y: 569
+        width: 620
+        height: 115
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dba532c831b107ad0800000000000000
-      internalID: -2706633605280212291
+      spriteID: 08f5b7b247c387930800000000000000
+      internalID: 4141126327010549632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DTT buttons_5
+      name: menuy buttons (1)_1
       rect:
         serializedVersion: 2
-        x: 9
-        y: 0
-        width: 172
-        height: 43
+        x: 638
+        y: 569
+        width: 620
+        height: 115
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04ede41a6b34040b0800000000000000
-      internalID: -5746518672855343552
+      spriteID: a636953168143cf00800000000000000
+      internalID: 1135823575133545322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuy buttons (1)_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 620
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51a91cad999c5ffc0800000000000000
+      internalID: -3461639075927057899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuy buttons (1)_3
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 420
+        width: 620
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e00c56e24594ddc0800000000000000
+      internalID: -3615100486306496287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuy buttons (1)_4
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 280
+        width: 620
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10a322269d39941d0800000000000000
+      internalID: -3365996684619138559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuy buttons (1)_5
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 140
+        width: 620
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e5c1b489455d270800000000000000
+      internalID: 8274612903435066968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menuy buttons (1)_6
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 0
+        width: 620
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 262ac11addac98180800000000000000
+      internalID: -9112529317767896478
       vertices: []
       indices: 
       edges: []
@@ -237,7 +261,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b1dea5595bc9de44289d888cbbf9d703
+    spriteID: c20b6be66b11ba14f8ad09ebbf7021d0
     internalID: 0
     vertices: []
     indices: 

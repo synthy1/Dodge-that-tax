@@ -23,6 +23,11 @@ public class ButtonManager : MonoBehaviour
         settingsScreen.SetActive(false);
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
     public void DificultySlider()
     {
         if(difficulty.value == 0)
