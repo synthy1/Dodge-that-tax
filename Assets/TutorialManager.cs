@@ -17,13 +17,14 @@ public class TutorialManager : MonoBehaviour
     CharacterController player;
 
     [Header("Bools")]
-    bool hasSat;
-    bool hasPhone;
-    bool hasWife;
-    bool hasWifi;
-    bool hasBought;
-    bool hasMoved;
-    bool hasStarted;
+    [SerializeField] bool hasSat;
+    [SerializeField] bool hasPhone;
+    [SerializeField] bool hasWife;
+    [SerializeField] bool hasWifi;
+    [SerializeField] bool hasBought;
+    [SerializeField] bool hasMoved;
+    [SerializeField] bool hasStarted;
+    public bool hasInteractedWithPhone = false;
 
     [Header("float")]
     float startingDosh;
@@ -61,7 +62,7 @@ public class TutorialManager : MonoBehaviour
                 }
                 else
                 {
-                    hasSat = true;
+                    hasStarted = true;
                     startingDosh = dosh.dosh;
                     tutorialText.text = null;
                     tutorialStep++;
@@ -97,36 +98,40 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 4:
-                if (!phone.active)
+                if (hasInteractedWithPhone == false)
                 {
-                    if (!hasPhone && !phone.stopRing)
+                    if (phone.active)
                     {
+                        Debug.Log("If ran");
                         tutorialText.text = "Press E on the phone to hang up";
-                    } 
-                    else
-                    {
-                        hasPhone = true;
-                        tutorialText.text = null;
-                        tutorialStep++;
                     }
+                }
+                else
+                {
+                    Debug.Log("else ran");
+                    hasPhone = true;
+                    tutorialText.text = null;
+                    tutorialStep++;
                 }
                 break;
 
             case 5:
-                if (!wife.active)
-                {
-                    if(!hasWifi && !wife.stopWife)
+                 if(wife.stopWife == false)
+                 {
+
+                    if (wife.active)
                     {
                         tutorialText.text = "Press F on money and give her the alomony";
                     }
-                    else
-                    {
-                        Debug.Log("end tutorial");
-                        hasWife = true;
-                        tutorialText.text = null;
-                        tutorialStep++;
-                    }
-                }
+                 }
+
+                 else
+                 {
+                    Debug.Log("end tutorial");
+                    hasWife = true;
+                    tutorialText.text = null;
+                    tutorialStep++;
+                 }
                 break;
 
                 /*if (!(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && !hasMoved)

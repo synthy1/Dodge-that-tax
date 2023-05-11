@@ -84,6 +84,7 @@ public class PhoneQTE :Interactable
         stopRing = true;
         active = false;
         sound.enabled = false;
+        FindObjectOfType<TutorialManager>().hasInteractedWithPhone = true;
     }
 
     public override void OnFocus()
